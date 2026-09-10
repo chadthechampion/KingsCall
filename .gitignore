@@ -1,0 +1,14 @@
+# Build output
+/out/
+/build/
+*.class
+
+# OS cruft
+.DS_Store
+
+# IDE (keep shared project files under .idea that are already tracked)
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
