@@ -60,18 +60,18 @@ public final class TutorialSequence {
         SaxionApp.drawImage(Assets.TABLE_BACKGROUND, 0, 0, SCREEN_W, SCREEN_H);
         SaxionApp.drawBorderedText("which suit do you think is better to choose?", 600, 500, 40);
         SaxionApp.drawBorderedText("s", 700, 550, 40);
-        SaxionApp.drawImage("resources/cardimages/spades.png", 740, 550, 50, 50);
+        SaxionApp.drawImage(Assets.card("spades"), 740, 550, 50, 50);
         SaxionApp.drawBorderedText("d", 840, 550, 40);
-        SaxionApp.drawImage("resources/cardimages/diamonds.png", 880, 550, 50, 50);
+        SaxionApp.drawImage(Assets.card("diamonds"), 880, 550, 50, 50);
         SaxionApp.drawBorderedText("c", 980, 550, 40);
-        SaxionApp.drawImage("resources/cardimages/clubs.png", 1020, 550, 50, 50);
+        SaxionApp.drawImage(Assets.card("clubs"), 1020, 550, 50, 50);
         SaxionApp.drawBorderedText("h", 1120, 550, 40);
-        SaxionApp.drawImage("resources/cardimages/hearts.png", 1160, 550, 50, 50);
-        SaxionApp.drawImage("resources/cardimages/6H.png", 680, 750, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/3S.png", 710, 750, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/JD.png", 740, 750, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/8D.png", 770, 750, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/QC.png", 800, 750, 150, 200);
+        SaxionApp.drawImage(Assets.card("hearts"), 1160, 550, 50, 50);
+        SaxionApp.drawImage(Assets.card("6H"), 680, 750, 150, 200);
+        SaxionApp.drawImage(Assets.card("3S"), 710, 750, 150, 200);
+        SaxionApp.drawImage(Assets.card("JD"), 740, 750, 150, 200);
+        SaxionApp.drawImage(Assets.card("8D"), 770, 750, 150, 200);
+        SaxionApp.drawImage(Assets.card("QC"), 800, 750, 150, 200);
 
         char choice = SaxionApp.readChar();
         while (choice != 'd') {
@@ -91,12 +91,12 @@ public final class TutorialSequence {
         SaxionApp.drawImage(Assets.TABLE_BACKGROUND, 0, 0, SCREEN_W, SCREEN_H);
         SaxionApp.drawBorderedText("what do we do here? choose a card", 600, 650, 40);
         SaxionApp.drawBorderedText("kings call: ", 10, 30, 25);
-        SaxionApp.drawImage("resources/cardimages/diamonds.png", 130, 30, 25, 25);
+        SaxionApp.drawImage(Assets.card("diamonds"), 130, 30, 25, 25);
         SaxionApp.drawBorderedText(" 1   2   3   4   5  6  7  8", 610, 710, 25);
 
-        SaxionApp.drawImage("resources/cardimages/JC.png", 1000, 350, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/4C.png", 800, 260, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/8C.png", 600, 350, 150, 200);
+        SaxionApp.drawImage(Assets.card("JC"), 1000, 350, 150, 200);
+        SaxionApp.drawImage(Assets.card("4C"), 800, 260, 150, 200);
+        SaxionApp.drawImage(Assets.card("8C"), 600, 350, 150, 200);
 
         drawTutorialHand();
 
@@ -114,11 +114,11 @@ public final class TutorialSequence {
         SaxionApp.drawImage(Assets.TABLE_BACKGROUND, 0, 0, SCREEN_W, SCREEN_H);
         SaxionApp.drawBorderedText("how about now? choose a card", 600, 650, 40);
         SaxionApp.drawBorderedText("kings call: ", 10, 30, 25);
-        SaxionApp.drawImage("resources/cardimages/diamonds.png", 130, 30, 25, 25);
+        SaxionApp.drawImage(Assets.card("diamonds"), 130, 30, 25, 25);
 
-        SaxionApp.drawImage("resources/cardimages/JC.png", 1000, 350, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/AC.png", 800, 260, 150, 200);
-        SaxionApp.drawImage("resources/cardimages/8C.png", 600, 350, 150, 200);
+        SaxionApp.drawImage(Assets.card("JC"), 1000, 350, 150, 200);
+        SaxionApp.drawImage(Assets.card("AC"), 800, 260, 150, 200);
+        SaxionApp.drawImage(Assets.card("8C"), 600, 350, 150, 200);
         SaxionApp.drawBorderedText(" 1   2   3   4   5  6  7  8", 610, 710, 25);
 
         drawTutorialHand();
@@ -136,7 +136,7 @@ public final class TutorialSequence {
         String[] hand = {"7S", "3S", "5S", "KH", "QH", "6H", "8D", "JD"};
         int x = 620;
         for (String card : hand) {
-            SaxionApp.drawImage("resources/cardimages/" + card + ".png", x, 750, 150, 200);
+            SaxionApp.drawImage(Assets.card(card), x, 750, 150, 200);
             x += 30;
         }
     }

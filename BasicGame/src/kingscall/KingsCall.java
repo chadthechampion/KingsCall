@@ -200,7 +200,7 @@ public class KingsCall implements GameLoop {
 
     private static void record(Suit called, List<Suit> trumps, List<String> trumpIcons) {
         trumps.add(called);
-        trumpIcons.add(called.iconPath());
+        trumpIcons.add(Assets.suitIcon(called));
     }
 
     private void showSetResult(String screen, String sound) {

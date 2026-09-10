@@ -2,6 +2,7 @@ package kingscall.game;
 
 import kingscall.model.Player;
 import kingscall.model.Suit;
+import kingscall.ui.Assets;
 import kingscall.ui.TableRenderer;
 import nl.saxion.app.SaxionApp;
 
@@ -50,7 +51,7 @@ public final class TrumpCaller {
         Suit called = Suit.fromCode(trump);
         orange();
         SaxionApp.drawBorderedText("the king calls ", 700, 500, 50);
-        SaxionApp.drawImage(called.iconPath(), 1000, 500, 50, 50);
+        SaxionApp.drawImage(Assets.suitIcon(called), 1000, 500, 50, 50);
         return called;
     }
 
@@ -75,7 +76,7 @@ public final class TrumpCaller {
         available.remove(called);
 
         SaxionApp.drawBorderedText("the king calls ", 700, 500, 50);
-        SaxionApp.drawImage(called.iconPath(), 1000, 500, 50, 50);
+        SaxionApp.drawImage(Assets.suitIcon(called), 1000, 500, 50, 50);
         SaxionApp.sleep(2);
         return called;
     }
@@ -115,7 +116,7 @@ public final class TrumpCaller {
         Suit called = Suit.fromCode(trump);
         orange();
         SaxionApp.drawBorderedText("the minister calls ", 700, 500, 50);
-        SaxionApp.drawImage(called.iconPath(), 1100, 500, 50, 50);
+        SaxionApp.drawImage(Assets.suitIcon(called), 1100, 500, 50, 50);
         SaxionApp.sleep(2);
         redrawPreview(players);
         return called;
@@ -126,7 +127,7 @@ public final class TrumpCaller {
         Suit called = available.get(SaxionApp.getRandomValueBetween(0, available.size()));
 
         SaxionApp.drawBorderedText("the minister calls  ", 700, 500, 50);
-        SaxionApp.drawImage(called.iconPath(), 1100, 500, 50, 50);
+        SaxionApp.drawImage(Assets.suitIcon(called), 1100, 500, 50, 50);
         SaxionApp.sleep(2);
         redrawPreview(players);
         return called;

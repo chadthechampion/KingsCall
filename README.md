@@ -66,6 +66,29 @@ java  -cp "out/production/kingscall:resources/SaxionApp.jar" kingscall.KingsCall
 In IntelliJ IDEA: open the folder, mark `BasicGame/src` as a **Sources Root**, add
 `resources/SaxionApp.jar` as a library, and run `kingscall.KingsCall`.
 
+## Packaging a standalone build
+
+`jpackage` (bundled with any JDK 17+) produces a build with its own trimmed Java
+runtime &mdash; the target machine needs no JDK installed.
+
+```bash
+# Windows
+./package.ps1                # -> build/dist/KingsCall/KingsCall.exe  (portable folder)
+./package.ps1 -Installer     # also a double-click installer (needs WiX Toolset v3)
+
+# macOS / Linux / Git Bash
+./package.sh
+./package.sh --installer
+```
+
+Ship the whole `build/dist/KingsCall/` folder (or zip it). Double-click
+`KingsCall.exe` to play.
+
+**How it stays self-contained.** The launcher passes `-Dkingscall.home=$APPDIR`;
+`Assets` builds every path from that, so the bundled `resources/` folder is found
+no matter where the app is installed or which directory it is launched from. To
+give it a real icon, drop a `packaging/KingsCall.ico` and re-run the script.
+
 ## Project layout
 
 ```

@@ -1,63 +1,86 @@
 package kingscall.ui;
 
+import kingscall.model.Suit;
+
 /**
- * Every image and sound path the game loads, in one place. Paths are relative to
- * the working directory, so the game must be launched from the project root.
+ * Every image and sound path the game loads, resolved in one place.
+ *
+ * <p>Paths are built under {@link #HOME}{@code /resources/...}. {@code HOME}
+ * defaults to {@code "."} (so running from the project root just works), and a
+ * packaged build overrides it with {@code -Dkingscall.home=<app dir>} so the
+ * bundled {@code resources/} folder is found wherever the app is installed.
  */
 public final class Assets {
+
+    private static final String HOME = System.getProperty("kingscall.home", ".");
 
     private Assets() {
     }
 
-    // Table
-    public static final String TABLE_BACKGROUND = "resources/file.png";
+    /** Resolves {@code relative} under the bundled {@code resources/} directory. */
+    public static String res(String relative) {
+        return HOME + "/resources/" + relative;
+    }
 
-    // End-of-round / end-of-game screens
-    public static final String HUMAN_WON_SET = "resources/yourteam.png";
-    public static final String OPPONENT_WON_SET = "resources/opponentWin.png";
-    public static final String GAME_WON = "resources/win.png";
-    public static final String GAME_LOST = "resources/loose.png";
+    /** A card or suit-icon image by file key, e.g. {@code "10H"} or {@code "hearts"}. */
+    public static String card(String key) {
+        return res("cardimages/" + key + ".png");
+    }
+
+    public static String suitIcon(Suit suit) {
+        return card(suit.iconName());
+    }
+
+    private static String story(String file) {
+        return res("STORYLINEPHOTOS/" + file);
+    }
+
+    // Table
+    public static final String TABLE_BACKGROUND = res("file.png");
+
+    // End-of-set / end-of-game screens
+    public static final String HUMAN_WON_SET = res("yourteam.png");
+    public static final String OPPONENT_WON_SET = res("opponentWin.png");
+    public static final String GAME_WON = res("win.png");
+    public static final String GAME_LOST = res("loose.png");
 
     // Role markers drawn next to each seat: [0]=South .. [3]=West
     public static final String[] KING_MARKER = {
-        "resources/c1.png", "resources/c2.png", "resources/c3.png", "resources/c4.png"
+        res("c1.png"), res("c2.png"), res("c3.png"), res("c4.png")
     };
     public static final String[] MINISTER_MARKER = {
-        "resources/m1.png", "resources/m2.png", "resources/m3.png", "resources/m4.png"
+        res("m1.png"), res("m2.png"), res("m3.png"), res("m4.png")
     };
 
     // Card backs
-    public static final String CARD_BACK = "resources/cardimages/gray_back.png";
-    public static final String CARD_BACK_ROTATED = "resources/cardimages/gray_back_kaj.png";
+    public static final String CARD_BACK = card("gray_back");
+    public static final String CARD_BACK_ROTATED = card("gray_back_kaj");
 
     // Music & sound effects
-    public static final String MUSIC_INTRO = "resources/music/g_intro.wav";
-    public static final String MUSIC_GAME = "resources/music/g_music.wav";
-    public static final String SFX_THROW = "resources/music/throwing.wav";
-    public static final String SFX_WIN = "resources/music/win.wav";
-    public static final String SFX_FAIL = "resources/music/fail.wav";
-
-    // Storyline
-    public static final String STORY = "resources/STORYLINEPHOTOS/";
+    public static final String MUSIC_INTRO = res("music/g_intro.wav");
+    public static final String MUSIC_GAME = res("music/g_music.wav");
+    public static final String SFX_THROW = res("music/throwing.wav");
+    public static final String SFX_WIN = res("music/win.wav");
+    public static final String SFX_FAIL = res("music/fail.wav");
 
     // Intro fade-in frames (dark -> full)
     public static final String[] INTRO_FADE_IN = {
-        STORY + "black.png", STORY + "start20.png", STORY + "start40.png",
-        STORY + "start60.png", STORY + "start80.png", STORY + "start.png"
+        story("black.png"), story("start20.png"), story("start40.png"),
+        story("start60.png"), story("start80.png"), story("start.png")
     };
-    public static final String INTRO_SHIRAZ = STORY + "shiraz100.png";
-    public static final String INTRO_SHIRAZ_DARK = STORY + "shirazdark100.png";
-    public static final String INTRO_KING = STORY + "king100.png";
-    public static final String INTRO_MINISTER = STORY + "minister100.png";
-    public static final String INTRO_CITIZEN = STORY + "citizen100.png";
-    public static final String MENU = STORY + "menu.png";
-    public static final String BIRD = STORY + "birdd.png";
-    public static final String LETTER = STORY + "letter.png";
-    public static final String GAME_STARTS = STORY + "gamestarts.png";
+    public static final String INTRO_SHIRAZ = story("shiraz100.png");
+    public static final String INTRO_SHIRAZ_DARK = story("shirazdark100.png");
+    public static final String INTRO_KING = story("king100.png");
+    public static final String INTRO_MINISTER = story("minister100.png");
+    public static final String INTRO_CITIZEN = story("citizen100.png");
+    public static final String MENU = story("menu.png");
+    public static final String BIRD = story("birdd.png");
+    public static final String LETTER = story("letter.png");
+    public static final String GAME_STARTS = story("gamestarts.png");
 
     /** Tutorial slides t1..t9. */
     public static final String[] TUTORIAL_SLIDES = {
-        STORY + "t1.png", STORY + "t2.png", STORY + "t3.png", STORY + "t4.png", STORY + "t5.png",
-        STORY + "t6.png", STORY + "t7.png", STORY + "t8.png", STORY + "t9.png"
+        story("t1.png"), story("t2.png"), story("t3.png"), story("t4.png"), story("t5.png"),
+        story("t6.png"), story("t7.png"), story("t8.png"), story("t9.png")
     };
 }

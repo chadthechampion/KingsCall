@@ -48,7 +48,7 @@ public final class Deck {
 
     private static Card card(int value, Suit suit, String imageKey) {
         return new Card(value, suit,
-            "resources/cardimages/" + imageKey + ".png",
+            Assets.card(imageKey),
             Assets.CARD_BACK,
             Assets.CARD_BACK_ROTATED);
     }

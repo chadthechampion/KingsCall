@@ -16,11 +16,11 @@ public enum Suit {
     SPADES('S', "spades");
 
     private final char code;
-    private final String iconPath;
+    private final String iconName;
 
     Suit(char code, String iconName) {
         this.code = code;
-        this.iconPath = "resources/cardimages/" + iconName + ".png";
+        this.iconName = iconName;
     }
 
     /** The single uppercase letter identifying this suit ({@code H, D, C, S}). */
@@ -28,9 +28,9 @@ public enum Suit {
         return code;
     }
 
-    /** Path to the small suit icon used when announcing trumps. */
-    public String iconPath() {
-        return iconPath;
+    /** File-name stem of the small suit icon, e.g. {@code "hearts"}. */
+    public String iconName() {
+        return iconName;
     }
 
     /** Resolves a suit from its letter, accepting either case. Returns {@code null} for anything else. */
